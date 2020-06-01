@@ -5615,9 +5615,9 @@ react-is@^16.12.0, react-is@^16.8.1, react-is@^16.8.4, react-is@^16.9.0:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
 
-"react-native-zoom-us@github:saggiyogesh/react-native-zoom-us#32eb64e":
+"react-native-zoom-us@github:saggiyogesh/react-native-zoom-us#1266e88":
   version "2.0.2"
-  resolved "https://codeload.github.com/saggiyogesh/react-native-zoom-us/tar.gz/32eb64e794f63232fc5b085ed39ad90ce4fc1889"
+  resolved "https://codeload.github.com/saggiyogesh/react-native-zoom-us/tar.gz/1266e885b9d865de7538c85a5ff57cb180952b93"
 
 react-native@0.61.4:
   version "0.61.4"

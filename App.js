@@ -8,36 +8,31 @@
 
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View, Button} from 'react-native';
-import ZoomUs from 'react-native-zoom-us';
+import {initialize, joinMeeting, startMeeting} from 'react-native-zoom-us';
 
 const zoomUserType = 2; // 2 - pro user
 const config = {
   zoom: {
-    appKey: 'UEWoSrHnCXriUARgH9CUOT8EwupySQYn1EAP', // TODO: appKey
-    appSecret: '8rUo3FYkiVVNa4ZIgAvgdJmf3EXqpp3t4MCp', // TODO appSecret
-    domain: 'zoom.us',
+    appKey: '', // TODO: appKey
+    appSecret: '', // TODO appSecret
   },
 };
 
 export default class App extends Component {
-  zakTokenRaw = ''; // TODO: meeting zak
-  meetingNo = ''; // TODO: meeting number
-
   async componentDidMount() {
     try {
-      const initializeResult = await ZoomUs.initialize(
+      const initializeResult = await initialize(
         config.zoom.appKey,
         config.zoom.appSecret,
-        config.zoom.domain,
       );
       console.warn({initializeResult});
     } catch (e) {
-      console.warn({e});
+      console.error(e);
     }
   }
 
   async start() {
-    const zakToken = decodeURIComponent(this.zakTokenRaw);
+    const zakToken = decodeURIComponent();
     const displayName = 'Test mentor';
 
     // TODO recieve user's details from zoom API? WOUT: webinar user is different
@@ -48,7 +43,7 @@ export default class App extends Component {
     const zoomAccessToken = zakToken;
 
     try {
-      const startMeetingResult = await ZoomUs.startMeeting(
+      const startMeetingResult = await startMeeting(
         displayName,
         this.meetingNo,
         userId,
@@ -65,14 +60,17 @@ export default class App extends Component {
   async join() {
     const displayName = 'Test student';
 
+    const joinMeetingParams = {
+      displayName,
+      meetingNo: '',
+      password: '',
+    };
+
     try {
-      const joinMeetingResult = await ZoomUs.joinMeeting(
-        displayName,
-        this.meetingNo,
-      );
+      const joinMeetingResult = await joinMeeting(joinMeetingParams);
       console.warn({joinMeetingResult});
     } catch (e) {
-      console.warn({e});
+      console.error(e);
     }
   }
 
